@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.mojitoming.casclient.config.CasCustomConfig,\
+  com.mojitoming.casclient.config.WebSecurityConfig
