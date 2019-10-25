@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Role {
     private String roleId;
-    private String roleCode;
+    private String roleName;
     private String roleDesc;
     private Long priority;
     private String status;
@@ -17,12 +17,12 @@ public class Role {
         this.roleId = roleId;
     }
 
-    public String getRoleCode() {
-        return roleCode;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setRoleCode(String roleCode) {
-        this.roleCode = roleCode;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
     public String getRoleDesc() {
@@ -55,7 +55,7 @@ public class Role {
         if (o == null || getClass() != o.getClass()) return false;
         Role role = (Role) o;
         return Objects.equals(roleId, role.roleId) &&
-                Objects.equals(roleCode, role.roleCode) &&
+                Objects.equals(roleName, role.roleName) &&
                 Objects.equals(roleDesc, role.roleDesc) &&
                 Objects.equals(priority, role.priority) &&
                 Objects.equals(status, role.status);
@@ -63,6 +63,6 @@ public class Role {
 
     @Override
     public int hashCode() {
-        return Objects.hash(roleId, roleCode, roleDesc, priority, status);
+        return Objects.hash(roleId, roleName, roleDesc, priority, status);
     }
 }
