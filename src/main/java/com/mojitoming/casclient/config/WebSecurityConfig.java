@@ -62,7 +62,7 @@ public class WebSecurityConfig implements WebMvcConfigurer {
 
             session.setAttribute("user", user);
             session.setAttribute("role", role);
-            session.setAttribute("privilege", privilege);
+            // session.setAttribute("privilege", privilege);
 
             PrivilegeBean.setPrivilege(privilege); // 设置一个静态变量，方便调用
 

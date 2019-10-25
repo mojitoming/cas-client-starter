@@ -5,6 +5,7 @@ import java.util.List;
 public class Privilege {
     private List<Module> system;
     private List<Module> page;
+    private List<OrgVo> data;
 
     public List<Module> getSystem() {
         return system;
@@ -20,5 +21,13 @@ public class Privilege {
 
     public void setPage(List<Module> page) {
         this.page = page;
+    }
+
+    public List<OrgVo> getData() {
+        return data;
+    }
+
+    public void setData(List<OrgVo> data) {
+        this.data = data;
     }
 }
