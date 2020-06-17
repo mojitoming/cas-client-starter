@@ -1,9 +1,12 @@
 package com.mojitoming.casclient.entity;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class User {
+public class User implements Serializable {
+    private static final long serialVersionUID = -1337841290061533570L;
+
     private String userId;
     private String username;
     private String password;

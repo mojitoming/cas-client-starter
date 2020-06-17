@@ -1,8 +1,11 @@
 package com.mojitoming.casclient.entity;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Module {
+public class Module implements Serializable {
+    private static final long serialVersionUID = 1739210000857148338L;
+
     private String moduleId;
     private String moduleName;
     private String moduleType;

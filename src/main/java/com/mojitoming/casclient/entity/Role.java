@@ -1,8 +1,11 @@
 package com.mojitoming.casclient.entity;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Role {
+public class Role implements Serializable {
+    private static final long serialVersionUID = -1480615842291082575L;
+
     private String roleId;
     private String roleName;
     private String roleDesc;

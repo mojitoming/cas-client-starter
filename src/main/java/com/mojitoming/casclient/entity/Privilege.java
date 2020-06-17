@@ -1,8 +1,11 @@
 package com.mojitoming.casclient.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Privilege {
+public class Privilege implements Serializable {
+    private static final long serialVersionUID = -4070035329942296456L;
+
     private List<Module> system;
     private List<Module> page;
     private List<OrgVo> data;
