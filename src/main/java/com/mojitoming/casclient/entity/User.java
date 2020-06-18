@@ -5,9 +5,9 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class User implements Serializable {
-    private static final long serialVersionUID = -1337841290061533570L;
+    private static final long serialVersionUID = 8331512426156411953L;
 
-    private String userId;
+    private Long userId;
     private String username;
     private String password;
     private String nickname;
@@ -15,12 +15,14 @@ public class User implements Serializable {
     private LocalDateTime warrantStartDate;
     private LocalDateTime warrantEndDate;
     private String status;
+    private LocalDateTime createDate;
+    private String creator;
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -80,23 +82,41 @@ public class User implements Serializable {
         this.status = status;
     }
 
+    public LocalDateTime getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(LocalDateTime createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return Objects.equals(userId, user.userId) &&
-                Objects.equals(username, user.username) &&
-                Objects.equals(password, user.password) &&
-                Objects.equals(nickname, user.nickname) &&
-                Objects.equals(salt, user.salt) &&
-                Objects.equals(warrantStartDate, user.warrantStartDate) &&
-                Objects.equals(warrantEndDate, user.warrantEndDate) &&
-                Objects.equals(status, user.status);
+                   Objects.equals(username, user.username) &&
+                   Objects.equals(password, user.password) &&
+                   Objects.equals(nickname, user.nickname) &&
+                   Objects.equals(salt, user.salt) &&
+                   Objects.equals(warrantStartDate, user.warrantStartDate) &&
+                   Objects.equals(warrantEndDate, user.warrantEndDate) &&
+                   Objects.equals(status, user.status) &&
+                   Objects.equals(createDate, user.createDate) &&
+                   Objects.equals(creator, user.creator);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, username, password, nickname, salt, warrantStartDate, warrantEndDate, status);
+        return Objects.hash(userId, username, password, nickname, salt, warrantStartDate, warrantEndDate, status, createDate, creator);
     }
 }

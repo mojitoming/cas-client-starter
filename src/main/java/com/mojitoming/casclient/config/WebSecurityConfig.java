@@ -1,12 +1,13 @@
 package com.mojitoming.casclient.config;
 
 import com.alibaba.fastjson.JSON;
-import com.mojitoming.casclient.entity.PrivilegeBean;
 import com.mojitoming.casclient.entity.Privilege;
+import com.mojitoming.casclient.entity.PrivilegeBean;
 import com.mojitoming.casclient.entity.Role;
 import com.mojitoming.casclient.entity.User;
 import org.jasig.cas.client.util.AbstractCasFilter;
 import org.jasig.cas.client.validation.Assertion;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
@@ -22,6 +23,9 @@ import javax.servlet.http.HttpSession;
 public class WebSecurityConfig implements WebMvcConfigurer {
     // 更换 CAS 中的 session 中的 key
     public final static String SESSION_KEY = AbstractCasFilter.CONST_CAS_ASSERTION;
+
+    @Value("${session.timeout:600}")
+    private int timeout;
 
     @Bean
     public SecurityInterceptor securityInterceptor() {
@@ -48,6 +52,8 @@ public class WebSecurityConfig implements WebMvcConfigurer {
                 response.sendRedirect("/login");
             }
 
+            session.setMaxInactiveInterval(timeout);
+
             // 获取 CAS 传递回来的对象
             Assertion assertion = (Assertion) session.getAttribute(SESSION_KEY);
 
@@ -62,8 +68,6 @@ public class WebSecurityConfig implements WebMvcConfigurer {
 
             session.setAttribute("user", user);
             session.setAttribute("role", role);
-            // session.setAttribute("privilege", privilege);
-
             PrivilegeBean.setPrivilege(privilege); // 设置一个静态变量，方便调用
 
             return true;

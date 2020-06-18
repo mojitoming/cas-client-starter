@@ -1,24 +1,28 @@
 package com.mojitoming.casclient.entity;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Module implements Serializable {
-    private static final long serialVersionUID = 1739210000857148338L;
+    private static final long serialVersionUID = -3491047505773696559L;
 
-    private String moduleId;
+    private Long moduleId;
     private String moduleName;
     private String moduleType;
     private String moduleAction;
-    private String parentId;
-    private Long seqNo;
+    private Long parentId;
+    private Long odn;
     private String moduleIcon;
+    private String status;
+    private LocalDateTime createDate;
+    private String creator;
 
-    public String getModuleId() {
+    public Long getModuleId() {
         return moduleId;
     }
 
-    public void setModuleId(String moduleId) {
+    public void setModuleId(Long moduleId) {
         this.moduleId = moduleId;
     }
 
@@ -46,20 +50,20 @@ public class Module implements Serializable {
         this.moduleAction = moduleAction;
     }
 
-    public String getParentId() {
+    public Long getParentId() {
         return parentId;
     }
 
-    public void setParentId(String parentId) {
+    public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
 
-    public Long getSeqNo() {
-        return seqNo;
+    public Long getOdn() {
+        return odn;
     }
 
-    public void setSeqNo(Long seqNo) {
-        this.seqNo = seqNo;
+    public void setOdn(Long odn) {
+        this.odn = odn;
     }
 
     public String getModuleIcon() {
@@ -70,22 +74,49 @@ public class Module implements Serializable {
         this.moduleIcon = moduleIcon;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public LocalDateTime getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(LocalDateTime createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Module module = (Module) o;
         return Objects.equals(moduleId, module.moduleId) &&
-                Objects.equals(moduleName, module.moduleName) &&
-                Objects.equals(moduleType, module.moduleType) &&
-                Objects.equals(moduleAction, module.moduleAction) &&
-                Objects.equals(parentId, module.parentId) &&
-                Objects.equals(seqNo, module.seqNo) &&
-                Objects.equals(moduleIcon, module.moduleIcon);
+                   Objects.equals(moduleName, module.moduleName) &&
+                   Objects.equals(moduleType, module.moduleType) &&
+                   Objects.equals(moduleAction, module.moduleAction) &&
+                   Objects.equals(parentId, module.parentId) &&
+                   Objects.equals(odn, module.odn) &&
+                   Objects.equals(moduleIcon, module.moduleIcon) &&
+                   Objects.equals(status, module.status) &&
+                   Objects.equals(createDate, module.createDate) &&
+                   Objects.equals(creator, module.creator);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(moduleId, moduleName, moduleType, moduleAction, parentId, seqNo, moduleIcon);
+        return Objects.hash(moduleId, moduleName, moduleType, moduleAction, parentId, odn, moduleIcon, status, createDate, creator);
     }
 }
