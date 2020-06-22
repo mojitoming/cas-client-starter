@@ -24,7 +24,7 @@ public class WebSecurityConfig implements WebMvcConfigurer {
     // 更换 CAS 中的 session 中的 key
     public final static String SESSION_KEY = AbstractCasFilter.CONST_CAS_ASSERTION;
 
-    @Value("${session.timeout:600}")
+    @Value("${session.timeout:1800}")
     private int timeout;
 
     @Bean
