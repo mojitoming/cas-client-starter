@@ -8,6 +8,7 @@ public class Privilege implements Serializable {
 
     private List<Module> system;
     private List<Module> page;
+    private List<Module> function;
     private List<OrgVo> data;
 
     public List<Module> getSystem() {
@@ -32,5 +33,13 @@ public class Privilege implements Serializable {
 
     public void setData(List<OrgVo> data) {
         this.data = data;
+    }
+
+    public List<Module> getFunction() {
+        return function;
+    }
+
+    public void setFunction(List<Module> function) {
+        this.function = function;
     }
 }
