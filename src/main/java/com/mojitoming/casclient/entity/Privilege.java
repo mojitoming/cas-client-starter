@@ -9,7 +9,7 @@ public class Privilege implements Serializable {
     private List<Module> system;
     private List<Module> page;
     private List<Module> function;
-    private List<OrgVo> data;
+    private List<OrgVO> data;
 
     public List<Module> getSystem() {
         return system;
@@ -27,11 +27,11 @@ public class Privilege implements Serializable {
         this.page = page;
     }
 
-    public List<OrgVo> getData() {
+    public List<OrgVO> getData() {
         return data;
     }
 
-    public void setData(List<OrgVo> data) {
+    public void setData(List<OrgVO> data) {
         this.data = data;
     }
 
