@@ -105,6 +105,7 @@ public class CasCustomConfig {
         }
         filterRegistration.addInitParameter("casServerUrlPrefix", casProperties.getCasServerUrlPrefix());
         filterRegistration.addInitParameter("serverName", casProperties.getServerName());
+        filterRegistration.addInitParameter("encoding", "UTF-8");
         filterRegistration.setOrder(5);
 
         return filterRegistration;
